@@ -92,7 +92,68 @@
   </style>
 </head>
 <body>
-
+ 
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 40px;
+      }
+  
+      .device-box {
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        margin: auto;
+        width: 80%;
+        max-width: 400px;
+      }
+  
+      .desktop {
+        background-color: #d0e6ff;
+        color: #003366;
+      }
+  
+      .tablet {
+        background-color: #ffe6cc;
+        color: #663300;
+      }
+  
+      .mobile {
+        background-color: #e6ffe6;
+        color: #006600;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <div id="device" class="device-box">
+      جاري التعرف على جهازك...
+    </div>
+  
+    <script>
+      function detectDevice() {
+        const width = window.innerWidth;
+        const deviceBox = document.getElementById("device");
+  
+        if (width <= 768) {
+          deviceBox.classList.add("mobile");
+          deviceBox.innerText = "أنت تستخدم جهاز موبايل 📱";
+        } else if (width <= 1024) {
+          deviceBox.classList.add("tablet");
+          deviceBox.innerText = "أنت تستخدم تابلت 📱📱";
+        } else {
+          deviceBox.classList.add("desktop");
+          deviceBox.innerText = "أنت تستخدم كمبيوتر 💻";
+        }
+      }
+  
+      window.onload = detectDevice;
+      window.onresize = detectDevice;
+    </script>
+  
+  
+  
   <!-- Header -->
   <header>
     <h1>كلنا غزة 🇵🇸</h1>
